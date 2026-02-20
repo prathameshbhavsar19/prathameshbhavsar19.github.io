@@ -542,17 +542,10 @@
       assert('stats labels correct', labels.some(t=>t.includes('projects completed')) && labels.some(t=>t.includes('sleepless nights')) && labels.some(t=>t.includes('cups of coffee')));
       // 2) Skeleton show/hide works
       showSkeletons(3); assert('skeletons show 3', document.getElementById('repoSkeletons').children.length===3); hideSkeletons(); assert('skeletons cleared', document.getElementById('repoSkeletons').children.length===0);
-
-      status.textContent = 'Tests: Passed';
-      status.className = 'pass';
-      status.style.display = 'block';
-      console.info('All tests passed.');
-    }catch(e){
-      console.error(e);
-      status.textContent = 'Tests: Failed — see console';
-      status.className = 'fail';
-      status.style.display = 'block';
-    }
+      
+      }catch(e){
+        console.error(e);
+      }
   })();
 
   fetchRepos();
