@@ -144,6 +144,18 @@
 
     @media (min-width:900px){ .experience .xp-grid{grid-template-columns: 1fr 1fr} }
 
+    /* ===== Education section (mirrors experience styles) ===== */
+    .education .edu-grid{display:grid; grid-template-columns: 1fr; gap:18px}
+    .education .edu{position:relative; background:linear-gradient(180deg, color-mix(in oklab, var(--bg-soft) 96%, transparent), var(--bg-soft)); border:1px solid var(--muted); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 18px 18px 22px}
+    .education .edu::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; border-radius:3px 0 0 3px; background:linear-gradient(180deg, var(--brand-2), var(--brand))}
+    .education .school{font-weight:700; font-size:18px}
+    .education .degree{color:var(--txt); font-size:15px; margin-top:2px}
+    .education .meta{color:var(--sub); font-size:14px; margin-top:4px}
+    .education .grade{margin-top:8px; color:var(--txt)}
+    .education .grade strong{color:var(--brand-2)}
+    .education .coursework{margin-top:10px; color:var(--sub); font-size:14px}
+    @media (min-width:900px){ .education .edu-grid{grid-template-columns: 1fr 1fr} }
+
     /* ===== Stats strip ===== */
     .stats{position:relative; padding:40px 0 30px; background:
       radial-gradient(800px 400px at 50% -200px, rgba(139,92,246,.12), transparent 60%),
@@ -156,10 +168,7 @@
     .stat .label{color: var(--sub); margin-top:8px}
     @media (max-width:900px){ .stat-grid{grid-template-columns:1fr} }
 
-    /* tiny test status badge */
-    #testStatus{position:fixed; right:12px; bottom:12px; padding:6px 10px; border-radius:10px; font-size:12px; border:1px solid var(--muted); background:var(--bg-soft); z-index:99}
-    #testStatus.pass{color:#10b981}
-    #testStatus.fail{color:#ef4444}
+
   </style>
 </head>
 <body>
@@ -174,6 +183,7 @@
         <div class="menu" role="navigation" aria-label="Primary">
           <!-- removed About link per request -->
           <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
           <a href="#resume">Resume</a>
           <a href="#contact">Contact</a>
         </div>
@@ -185,9 +195,9 @@
   <main id="main" class="container">
     <section class="hero" id="top">
       <div class="card p24">
-        <span class="pill">Software Development Engineer · AI/ML & Data</span>
+        <span class="pill">AI/ML Intern · Healthcare AI & Data</span>
         <h1>I build handy, data‑driven stuff — end to end.</h1>
-        <p class="lead">3+ years across web, RPA, and ML. I like taking ideas from “hmm” to “shipped”: APIs, ETL/data pipelines, and little AI helpers. Based in Richardson, TX.</p>
+        <p class="lead">3+ years across web, automation, and ML. Currently an AI intern at Conifer Health Solutions, building LLM‑powered agents for healthcare. I like taking ideas from “hmm” to “shipped”: APIs, ETL/data pipelines, and little AI helpers. Based in Dallas, TX.</p>
         <div class="cta">
           <a class="btn primary" href="#projects" aria-label="View projects">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14m7-7H5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -208,22 +218,22 @@
           <figcaption id="photoTitle" class="sub" style="text-align:center">Hey! I'm Prathamesh 👋</figcaption>
         </figure>
 
-        <p id="aboutBlurb" class="sub" style="margin:10px 0 16px">I like building things that feel simple and run fast. Lately I’m tinkering with ML agents and data plumbing. I care about clean UIs, readable code, and shipping small wins often.</p>
+        <p id="aboutBlurb" class="sub" style="margin:10px 0 16px">I like building things that feel simple and run fast. Lately I’m deep in LLM agents, RAG pipelines, and healthcare AI. I care about clean UIs, readable code, and shipping small wins often.</p>
 
         <h2 style="margin-top:4px">Quick bits</h2>
         <ul style="margin:10px 0 0 18px; padding:0">
-          <li>Currently interning as Data Engineer @Tenet Healthcare.</li>
-          <li>What I’m into: ML/AI agents, data engineering, cloud.</li>
-          <li>Previously @ Enel X — shipped automations that saved 100+ hrs/month.</li>
+          <li>What I’m into: LLM agents, RAG, data engineering, cloud.</li>
+          <li>MS Computer Engineering @ UT Dallas (ML track) · GPA 3.89.</li>
         </ul>
         <div class="about kv">
           <span class="chip">Python</span>
+          <span class="chip">LangChain</span>
           <span class="chip">FastAPI</span>
           <span class="chip">React</span>
           <span class="chip">PostgreSQL/BigQuery</span>
-          <span class="chip">Docker</span>
+          <span class="chip">Docker/Kubernetes</span>
           <span class="chip">GCP/AWS</span>
-          <span class="chip">Airflow</span>
+          <span class="chip">TensorFlow</span>
         </div>
       </div>
     </section>
@@ -232,19 +242,39 @@
       <h2>Experience</h2>
       <div class="xp-grid">
         <article class="xp">
-          <div class="role">Data Engineer</div>
-          <div class="meta">Tenet Healthcare · Dallas, TX · Aug 2025 – Present</div>
-          <p class="desc">Tuning BigQuery and Airflow so data moves faster and cheaper: refactors and partitioning shaved <strong>28%</strong> in cost and <strong>35%</strong> in latency. Built reliable Airflow DAGs with retries & SLAs that run at <strong>99.2%</strong> success, plus warehouse QA checks that cut mismatches <strong>82%</strong> across <strong>12</strong> tables.</p>
+          <div class="role">Intern</div>
+          <div class="meta">Conifer Health Solutions · Dallas, TX · Aug 2025 – Present · On‑site</div>
+          <p class="desc">Building healthcare AI from prototype to production. Shipped an ICD‑10 medical coding agent with LLMs, RAG, FAISS, and LangChain — hitting <strong>89%</strong> accuracy and cutting manual coding time by <strong>55%</strong> across <strong>12</strong> facilities. Built a clinical trial matching agent using BioBERT, LangChain, and graph‑based retrieval against <strong>500+</strong> trial criteria, improving enrollment by <strong>42%</strong>. Also engineered a real‑time clinical decision support system on TensorFlow, FHIR API streams, Redis, and Kubernetes powering insights across <strong>8</strong> ICUs, with BigQuery logging and A/B testing for reliability.</p>
         </article>
         <article class="xp">
           <div class="role">Software Development Engineer</div>
-          <div class="meta">EnelX Services · Mumbai, India · Jul 2021 – Aug 2024</div>
-          <p class="desc">Owned a mix of automation, APIs and UI. Shipped <strong>30+</strong> automations across SAP/ServiceNow/Salesforce (saving <strong>100s of hours</strong>), built <strong>25–30</strong> APIs and tuned SQL, and refreshed the React UI for a <strong>20%</strong> engagement bump. Helped squash duplicate bills in UBM (<strong>12% → 3%</strong>) and delivered several time‑savers: SAP↔ServiceNow syncs (<strong>700 hrs</strong> saved), Excel/SharePoint clean‑ups (<strong>90%</strong> fewer data errors) and faster MongoDB reporting.</p>
+          <div class="meta">Enel X · Mumbai, India · Jul 2021 – Aug 2024 · Full‑time · Hybrid</div>
+          <p class="desc">Owned a mix of ML, automation, APIs and UI. Built a predictive maintenance system (Kafka, SageMaker, Kubernetes, MLflow) that reduced outages by <strong>40%</strong> and maintenance costs by <strong>25%</strong>. Designed an AI‑powered energy audit engine on LLM workflows and cloud services, automating <strong>80%</strong> of audits across <strong>300+</strong> facilities. Shipped outage root‑cause analysis combining streaming data, knowledge graphs, and LLM reasoning — dropping issue ID time from <strong>4.2 hrs to 35 min</strong>. Created an EV fleet charging optimization tool (XGBoost, PySpark, FastAPI, AWS) that cut costs <strong>18%</strong> and pushed uptime to <strong>97%</strong>. Led billing automation across <strong>30+</strong> suppliers (duplicate overhead <strong>12% → 5%</strong>, <strong>50+ hrs</strong>/month saved) and a team of <strong>5</strong> contractors on automation delivery.</p>
         </article>
         <article class="xp">
           <div class="role">Web Development Intern</div>
-          <div class="meta">Sahu Technologies · Mumbai, India · Jun 2019 – Jul 2019</div>
-          <p class="desc">Got my hands dirty with Java, SQL and Entity Framework—built and tuned REST APIs (latency <strong>200ms → 120ms</strong>), worked in Scrum/Kanban teams for <strong>25%</strong> faster delivery, and iterated UI components that lowered bounce by <strong>20%</strong>.</p>
+          <div class="meta">Sahu Technologies · Mumbai, India · Jun 2019 – Jul 2019 · Remote</div>
+          <p class="desc">Learned the Agile SDLC ropes — sprint planning, code reviews, iterative dev — while supporting API development for web app features using React.js and MVC architecture, improving backend integration and frontend functionality.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="education">
+      <h2>Education</h2>
+      <div class="edu-grid">
+        <article class="edu">
+          <div class="school">The University of Texas at Dallas</div>
+          <div class="degree">Master of Science, Computer Engineering — Machine Learning Track</div>
+          <div class="meta">Aug 2024 – May 2026</div>
+          <div class="grade">GPA: <strong>3.89 / 4.0</strong></div>
+          <p class="coursework"><em>Coursework:</em> Machine Learning, Deep Learning, Natural Language Processing, Big Data Analytics, Data Structures &amp; Algorithms, Database Systems, Computer Architecture, Cloud Computing.</p>
+        </article>
+        <article class="edu">
+          <div class="school">Shah and Anchor Kutchhi Engineering College</div>
+          <div class="degree">Bachelor of Engineering, Information Technology</div>
+          <div class="meta">Jul 2017 – Jul 2021</div>
+          <div class="grade">GPA: <strong>8.15 / 10</strong></div>
+          <p class="coursework"><em>Coursework:</em> Data Structures &amp; Algorithms, Database Management Systems, Object‑Oriented Programming, Software Engineering, Web Technologies, Computer Networks, Operating Systems, Data Mining, Artificial Intelligence, Machine Learning, Cloud Computing.</p>
         </article>
       </div>
     </section>
@@ -309,8 +339,6 @@
       </div>
     </footer>
   </main>
-
-  <div id="testStatus" aria-live="polite" class="pass" style="display:none"></div>
 
   <script>
   // ——— Configuration ———
@@ -481,72 +509,6 @@
     nums.forEach(n=>io.observe(n));
   }
   animateCounters();
-
-  // ——— Minimal tests (run once on load) ———
-  (function runTests(){
-    const status = document.getElementById('testStatus');
-    function assert(name, cond){
-      if(!cond) throw new Error('Test failed: '+name);
-    }
-    try{
-      // Test data
-      const sample = [
-        { name:'b', updated_at:'2024-01-02T00:00:00Z', topics:[], language:'JS' },
-        { name:'a', updated_at:'2024-01-03T00:00:00Z', topics:['portfolio'], language:'TS' },
-        { name:'c', updated_at:'2024-01-01T00:00:00Z', topics:[], language:'Py' }
-      ];
-
-      // Featured sort (topic 'portfolio' → first)
-      const prev = sortSel.value; sortSel.value = 'featured';
-      const featured = sortRepos(sample);
-      assert('featured first element has portfolio topic', (featured[0].topics||[]).includes('portfolio'));
-
-      // Updated desc
-      sortSel.value = 'updated';
-      const up = sortRepos(sample);
-      assert('updated sorting desc', up[0].updated_at === '2024-01-03T00:00:00Z');
-
-      // Name A→Z
-      sortSel.value = 'name';
-      const byName = sortRepos(sample);
-      assert('name sorting A→Z', byName[0].name === 'a');
-
-      // repoCard should NOT include star symbol
-      const html = repoCard({name:'x', html_url:'#', description:'d', language:'JS', updated_at:'2024-01-01T00:00:00Z', topics:[], homepage:''});
-      assert('repoCard no star symbol', !/\u2B50|⭐/.test(html));
-
-      // About section removed, blurb moved under photo
-      assert('no standalone about section', !document.querySelector('section#about'));
-      assert('about blurb present under portrait', !!document.getElementById('aboutBlurb'));
-
-      // Nav no longer contains About link
-      const menuText = document.querySelector('.menu').textContent.toLowerCase();
-      assert('nav without about link', menuText.includes('projects') && !menuText.includes('about'));
-
-      // Stats section exists & counters ready
-      const statNums = document.querySelectorAll('.stat .num');
-      assert('stats counters exist', statNums.length===3);
-      const qbH2 = Array.from(document.querySelectorAll('h2')).find(h=>/quick bits/i.test(h.textContent));
-      const qbCount = qbH2 && qbH2.nextElementSibling ? qbH2.nextElementSibling.querySelectorAll('li').length : 0;
-      assert('quick bits trimmed to two', qbCount===2);
-
-      // Experience section exists with three tiles
-      const xpTiles = document.querySelectorAll('#experience .xp');
-      assert('experience has 3 tiles', xpTiles.length === 3);
-      const firstRole = xpTiles[0].querySelector('.role')?.textContent || '';
-      assert('experience first tile mentions Data Engineer', /data engineer/i.test(firstRole));
-
-      // EXTRA TESTS
-      // 1) Stats labels text present
-      const labels = Array.from(document.querySelectorAll('.stat .label')).map(x=>x.textContent.toLowerCase());
-      assert('stats labels correct', labels.some(t=>t.includes('projects completed')) && labels.some(t=>t.includes('sleepless nights')) && labels.some(t=>t.includes('cups of coffee')));
-      // 2) Skeleton show/hide works
-      showSkeletons(3); assert('skeletons show 3', document.getElementById('repoSkeletons').children.length===3); hideSkeletons(); assert('skeletons cleared', document.getElementById('repoSkeletons').children.length===0);
-      
-      }catch(e){
-        console.error(e);
-      }
-  })();
 
   fetchRepos();
   </script>
